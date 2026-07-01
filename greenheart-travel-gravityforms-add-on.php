@@ -159,15 +159,17 @@
         */
         private function getFormId() : int {
 
+			/* IS LOCAL */
             if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
                 return 4;
             }
 
+			/* IS DEVELOPMENT */
             if (substr($_SERVER['HTTP_HOST'], 0, 4) === 'dev.') {
                 return 4;
             }
-
-            return 4;
+			/* IS PRODUCTION */
+            return 6;
 
         }
     }
